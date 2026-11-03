@@ -3,35 +3,33 @@ const mongoose = require("mongoose");
 
 // subdokumen yang tertanam di dalam Room (EMBEDDING)
 // fasilitas selalu dibaca bersama kamar, jadi paling efisien ditanam
-const fasilitasSchema = new mongoose.Schema(
+const tempatSchema = new mongoose.Schema(
   {
-    nama: { type: String, required: true },
-    jumlah: { type: Number, default: 1 },
+    lokasi: { type: String, required: true },
   },
   { _id: false }
 );
 
 const roomSchema = new mongoose.Schema(
   {
-    nomorKamar: { type: String, required: true },
-    tipe: {
+    kodeSesi: { type: String, required: true },
+    namaKlien: { type: String, required: true },
+    durasiJam: { type: Number, required: true },
+    paket: {
       type: String,
-      enum: ["standar", "deluxe", "suite"],
+      enum: ["personal", "keluarga", "prewedding"],
       required: true,
     },
-    hargaPerMalam: { type: Number, required: true },
-    kapasitas: { type: Number, required: true },
-    tersedia: { type: Boolean, default: true },
     // EMBEDDING: array subdokumen fasilitas ada di dalam dokumen kamar
-    fasilitas: [fasilitasSchema],
+    fasilitas: [tempatSchema],
     // REFERENCING: kamar menunjuk dokumen Hotel lain lewat ObjectId
-    hotel: {
+    fotografer: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Hotel",
+      ref: "Fotografer",
       required: true,
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Room", roomSchema);
+module.exports = mongoose.model("Sesifoto", sesifotoSchema);

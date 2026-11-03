@@ -1,7 +1,7 @@
 // Schema Hotel - menjadi target REFERENCING dari Room
 const mongoose = require("mongoose");
 
-const hotelSchema = new mongoose.Schema(
+const fotograferSchema = new mongoose.Schema(
   {
     nama: { type: String, required: true },
     alamat: { type: String, required: true },
@@ -11,4 +11,4 @@ const hotelSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Hotel", hotelSchema);
+module.exports = mongoose.model("Fotografer", fotograferSchema);

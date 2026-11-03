@@ -6,8 +6,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
-const roomRoutes = require("./routes/fotograferRoutes");
-const hotelRoutes = require("./routes/sesifotoRoutes");
+const fotograferRoutes = require("./routes/fotograferRoutes");
+const sesifotoRoutes = require("./routes/sesifotoRoutes");
 const logger = require("./middlewares/logger");
 const { notFound, errorHandler } = require("./middlewares/errorHandler");
 
