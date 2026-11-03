@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const sesifotoController = require("../controllers/sesifotoController");
 
-router.get("/", sesifotoController.getAllsesifoto);
-router.get("/:id", sesifotoController.getsesifotoById);
-router.post("/", sesifotoController.createsesifoto);
-router.put("/:id", sesifotoController.updatesesifoto);
-router.delete("/:id", sesifotoController.deletesesifoto);
+router.get("/", sesifotoController.getAllSesifoto);
+router.get("/:id", sesifotoController.getSesifotoById);
+router.post("/", sesifotoController.createSesifoto);
+router.put("/:id", sesifotoController.updateSesifoto);
+router.delete("/:id", sesifotoController.deleteSesifoto);
 
 module.exports = router;
